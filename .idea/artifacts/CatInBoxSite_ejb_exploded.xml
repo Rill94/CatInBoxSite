@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="CatInBoxSite:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/CatInBoxSite_ejb_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="CatInBoxSite/ejb/EJB" />
+      <element id="module-output" name="CatInBoxSite" />
+    </root>
+  </artifact>
+</component>

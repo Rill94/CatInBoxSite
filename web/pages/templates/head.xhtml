@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Лера
+  Date: 23.11.13
+  Time: 22:41
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core_rt">
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+</h:head>
+
+<h:body>
+    <ui:composition>
+        <f:view>
+            <h:form id="enter">
+                <table style="border: 0;float: left">
+                    <tr>
+                        <td class="catInBox">
+                            <span>C</span><span>a</span><span>t</span><span>I</span><span>n</span><span>B</span><span>o</span><span>x</span></td>
+                    </tr>
+                </table>
+
+                <ui:fragment rendered="#{userCDIBean.isLogged == true}">
+                    <table style="border: 0;margin: 0 auto;" align="right">
+                        <tr>
+                            <td valign="top">
+                                    <h:outputLabel value="Привет," style="color: white; font-size: 20px;"/>
+                                    <h:outputLabel value="#{userCDIBean.username}" style="color: orange; font-size: 20px;"/>
+                                    <h:outputLabel value="!" rendered="#{userCDIBean.isLogged == true}" style="color: white; font-size: 20px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <h:commandLink value="Выход" style="color: white; font-size: 20px;" action="#{userCDIBean.logout}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </ui:fragment>
+
+                <ui:fragment rendered="#{userCDIBean.isLogged==false}">
+                    <table style="border: 0;margin: 0 auto;" align="right">
+                        <tr>
+                            <td valign="top"><h:outputLabel value="Логин" for = "login" style="color: darkgray" rendered="#{userCDIBean.isLogged==false}"/></td>
+                            <td valign="top"><h:inputText id="login" value="#{userCDIBean.username}" rendered="#{userCDIBean.isLogged==false}"/>
+                            </td>
+                        </tr><tr>
+                        <td valign="top"><h:outputLabel value="Пароль" for = "password" style="color: darkgray" rendered="#{userCDIBean.isLogged==false}"/></td>
+                        <td valign="top"><h:inputSecret id="password" value="#{userCDIBean.password}" rendered="#{userCDIBean.isLogged==false}"/>
+                        </td>
+                        <td></td>
+                    </tr>
+                        <tr>
+                            <ui:fragment rendered="#{userCDIBean.isLogged==false}">
+                                <td valign="top"><h:commandButton value="Войти"  rendered="#{userCDIBean.isLogged==false}"/></td>
+                                <td valign="top"><h:commandButton value="Регистрация" /></td>
+                            </ui:fragment>
+                        </tr>
+                    </table>
+                </ui:fragment>
+            </h:form>
+        </f:view>
+    </ui:composition>
+</h:body>
+</html>
