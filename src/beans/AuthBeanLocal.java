@@ -12,4 +12,5 @@ public interface AuthBeanLocal
 {
     public String logout();
     public User login(String username, String password);
+    public String getMD5(String input);
 }

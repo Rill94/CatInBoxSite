@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="CatInBoxSite" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="JPA 2.0-2.0" />
+          <element id="file-copy" path="C:/Develop/libraries/validation-api-1.0.0.GA.jar" />
+          <element id="file-copy" path="C:/Develop/libraries/primefaces-4.0.jar" />
+        </element>
       </element>
     </root>
   </artifact>

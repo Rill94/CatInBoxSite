@@ -20,16 +20,23 @@ public class User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "middle_name")
-    private String middleName;
-
     private String password;
+
+    private String email;
 
     private String username;
 
     //bi-directional many-to-one association to Rating
     @OneToMany(mappedBy = "user")
     private List<Rating> ratings;
+
+    public User(String username, String password, String email, String firstName, String lastName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.password = password;
+        this.username = username;
+        this.email = email;
+    }
 
     //bi-directional many-to-many association to Group
     @ManyToMany
@@ -75,14 +82,6 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getMiddleName() {
-        return this.middleName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
     public String getPassword() {
         return this.password;
     }
@@ -121,5 +120,13 @@ public class User implements Serializable {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

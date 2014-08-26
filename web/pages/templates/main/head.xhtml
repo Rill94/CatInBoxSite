@@ -13,7 +13,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jstl/core_rt">
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <h:outputStylesheet library="css" name="styles.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
@@ -51,18 +51,18 @@
                     <table style="border: 0;margin: 0 auto;" align="right">
                         <tr>
                             <td valign="top"><h:outputLabel value="Логин" for = "login" style="color: darkgray" rendered="#{userCDIBean.isLogged==false}"/></td>
-                            <td valign="top"><h:inputText id="login" value="#{userCDIBean.username}" rendered="#{userCDIBean.isLogged==false}"/>
+                            <td valign="top"><p:inputText id="login" value="#{userCDIBean.username}" rendered="#{userCDIBean.isLogged==false}" style="height: 80%;"/>
                             </td>
                         </tr><tr>
                         <td valign="top"><h:outputLabel value="Пароль" for = "password" style="color: darkgray" rendered="#{userCDIBean.isLogged==false}"/></td>
-                        <td valign="top"><h:inputSecret id="password" value="#{userCDIBean.password}" rendered="#{userCDIBean.isLogged==false}"/>
+                        <td valign="top"><p:password id="password" value="#{userCDIBean.password}" rendered="#{userCDIBean.isLogged==false}" style="height: 80%;"/>
                         </td>
                         <td></td>
                     </tr>
                         <tr>
                             <ui:fragment rendered="#{userCDIBean.isLogged==false}">
-                                <td valign="top"><h:commandButton value="Войти"  rendered="#{userCDIBean.isLogged==false}"/></td>
-                                <td valign="top"><h:commandButton value="Регистрация" /></td>
+                                <td valign="top"><h:commandButton value="Войти" action="#{userCDIBean.login}"/></td>
+                                <td valign="top"><h:commandButton value="Регистрация" action="registration/registration"/></td>
                             </ui:fragment>
                         </tr>
                     </table>

@@ -27,10 +27,6 @@ public class AuthBean implements AuthBeanLocal
     @PersistenceContext(name = "persistence/catinbox", unitName = "CatinboxPU")
     private EntityManager entityManager;
 
-    protected EntityManager getEntityManager() {
-        return entityManager;
-    }
-
     private static Logger logger = Logger.getLogger(AuthBean.class.getName());
     private FacesContext context = FacesContext.getCurrentInstance();
     private HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();
@@ -76,7 +72,7 @@ public class AuthBean implements AuthBeanLocal
         System.out.print("");
     }
 
-    private String getMD5(String input) {
+    public String getMD5(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] messageDigest = md.digest(input.getBytes());

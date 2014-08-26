@@ -6,6 +6,9 @@ import model.User;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -21,21 +24,23 @@ public class UserCDIBean implements Serializable
     private Boolean isLogged;
     private String username;
     private String password;
+    private User user;
 
-    private User login()
+
+    public String login()
     {
-        return authBeanLocal.login(username, password);
+        user = authBeanLocal.login(username, password);
+        return "index";
     }
 
     public String logout()
     {
         String result = authBeanLocal.logout();
-        isLogged = false;
+        user = null;
         return result;
     }
 
     public Boolean getIsLogged() {
-        User user = login();
         if (user != null)
             return true;
         else return false;
@@ -56,4 +61,5 @@ public class UserCDIBean implements Serializable
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
