@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="CatinboxPU">
+        <jta-data-source>jdbc/__catinbox</jta-data-source>
+        <class>model.Album</class>
+        <class>model.Band</class>
+        <class>model.Comment</class>
+        <class>model.New</class>
+        <class>model.Rating</class>
+        <class>model.Song</class>
+        <class>model.User</class>
+        <class>model.Group</class>
+    </persistence-unit>
+    <persistence-unit name="SubscriptionPU">
+        <jta-data-source>jdbc/__subscription</jta-data-source>
+        <class>model.Card</class>
+        <class>model.History</class>
+        <class>model.Subscription</class>
+    </persistence-unit>
+</persistence>

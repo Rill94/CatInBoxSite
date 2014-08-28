@@ -3,6 +3,7 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 
@@ -25,6 +26,9 @@ public class Song implements Serializable {
 
 	@Lob
 	private String title;
+
+    @Temporal(TemporalType.DATE)
+    private Date year;
 
 	//bi-directional many-to-one association to Rating
 	@OneToMany(mappedBy="song")
@@ -78,7 +82,15 @@ public class Song implements Serializable {
 		this.ratings = ratings;
 	}
 
-	public Rating addRating(Rating rating) {
+    public Date getYear() {
+        return year;
+    }
+
+    public void setYear(Date year) {
+        this.year = year;
+    }
+
+    public Rating addRating(Rating rating) {
 		getRatings().add(rating);
 		rating.setSong(this);
 

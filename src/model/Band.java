@@ -18,6 +18,8 @@ public class Band implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int id;
 
+    private String name;
+
 	private String description;
 
 	@Lob
@@ -54,7 +56,15 @@ public class Band implements Serializable {
 		this.members = members;
 	}
 
-	public List<Album> getAlbums() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Album> getAlbums() {
 		return this.albums;
 	}
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Valerie
+  Date: 26.08.2014
+  Time: 20:00
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<f:view>
+    <h:body id="page">
+        <div id = "body">
+            <ui:include src="/pages/templates/registration/successregbody.xhtml"/>
+        </div>
+        <div id = "header">
+            <ui:insert name="header">
+                <ui:include src="/pages/templates/main/head.xhtml"/>
+            </ui:insert>
+        </div>
+    </h:body>
+</f:view>
+</html>

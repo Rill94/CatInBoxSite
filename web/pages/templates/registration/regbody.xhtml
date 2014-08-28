@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Valerie
+  Date: 25.08.2014
+  Time: 15:43
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+
+<h:body>
+    <ui:composition>
+        <div class="body">
+            <f:view>
+                <h:form>
+                    <br/>
+                    <h:panelGrid columns="3" style="font-size: 20px;margin: 0 10px;">
+
+                        <h:outputLabel value="Логин *" style="color: white;"/>
+                        <p:inputText id="username" value="#{registrationCDIBean.username}" styleClass="textbox" required="true"
+                                     requiredMessage="Введите логин">
+                        <f:validator validatorId="loginValidator" />
+                        </p:inputText>
+                        <h:message for="username" style="color: orange;" />
+
+                        <h:outputLabel value="Email * " style="color: white;"/>
+                        <p:inputText
+                                id="email"
+                                size="40"
+                                value="#{registrationCDIBean.email}"
+                                styleClass="textbox"
+                                validatorMessage="Неверный адрес электронной почты">
+                            <f:validateRegex
+                                    pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                        </p:inputText>
+                        <h:message for="email" style="color: orange;" />
+
+                        <h:outputLabel value="Имя: " style="color: white;"/>
+                        <p:inputText id="first_name" value="#{registrationCDIBean.first_name}" styleClass="textbox"/>
+                        <h:message for="first_name" style="color: orange;" />
+
+                        <h:outputLabel value="Фамилия: " style="color: white;"/>
+                        <p:inputText id="last_name" value="#{registrationCDIBean.last_name}" styleClass="textbox"/>
+                        <h:message for="last_name" style="color: orange;" />
+
+                        <h:outputLabel value="Пароль *" style="color: white"/>
+                        <p:password value="#{registrationCDIBean.password}" styleClass="textbox" id="password" required="true"
+                                    requiredMessage="Введите пароль">
+                            <f:validator validatorId="passwordValidator" />
+                            <f:attribute name="confirmPassword" value="#{confirmPassword}" />
+                        </p:password>
+                        <h:message for="password" style="color: orange;" />
+
+                        <h:outputLabel value="Повторите пароль *" style="color: white"/>
+                        <p:password id="confirmPassword" styleClass="textbox" required="true"
+                                    binding="#{confirmPassword}"
+                                    requiredMessage="Повторите пароль" />
+                        <h:message for="confirmPassword" style="color: orange;" />
+
+                    </h:panelGrid>
+                    <br/>
+                    <h:commandButton value="Зарегистрироваться" styleClass="regbutton" action="#{registrationCDIBean.createUser}"/>
+                </h:form>
+            </f:view>
+        </div>
+
+    </ui:composition>
+</h:body>
+
+</html>

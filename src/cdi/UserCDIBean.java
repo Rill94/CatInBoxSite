@@ -30,7 +30,7 @@ public class UserCDIBean implements Serializable
     public String login()
     {
         user = authBeanLocal.login(username, password);
-        return "index";
+        return "index?faces-redirect=true";
     }
 
     public String logout()
